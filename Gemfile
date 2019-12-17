@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '~> 2.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.2'
+gem 'rails', git: 'https://github.com/rails/rails', branch: '6-0-stable'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.2'
@@ -19,13 +19,13 @@ gem 'webpacker', '~> 4.2.2'
 gem 'turbolinks', '~> 5'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.9'
+gem 'jbuilder', git: 'https://github.com/rails/jbuilder'
 
 # Use devise for Users and authentication.
-gem 'devise', '~> 4.7'
+gem 'devise', git: 'https://github.com/plataformatec/devise'
 
 # Use kaminari for pagination.
-gem 'kaminari', '~> 1.1'
+gem 'kaminari', git: 'https://github.com/kaminari/kaminari'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -76,6 +76,9 @@ gem 'simple_token_authentication', '~> 1.17'
 
 # Rack::Cors for handling CORS in API requests.
 gem "rack-cors", "~> 1.1"
+
+gem 'sprockets', git: 'https://github.com/rails/sprockets'
+gem 'sprockets-rails', git: 'https://github.com/rails/sprockets-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -144,7 +147,7 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 3.30'
+  gem 'capybara', git: 'https://github.com/teamcapybara/capybara'
   gem 'selenium-webdriver', '~> 3.142'
   # Easy installation and use of WebDriver clients for various browsers.
   gem 'webdrivers', '~> 4.2'
