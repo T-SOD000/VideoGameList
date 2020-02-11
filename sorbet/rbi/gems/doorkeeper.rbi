@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/doorkeeper/all/doorkeeper.rbi
 #
-# doorkeeper-5.3.0
+# doorkeeper-5.3.1
 module Doorkeeper
   def self.authenticate(request, methods = nil); end
   def self.config; end
@@ -82,6 +82,7 @@ class Doorkeeper::Config
   def scopes_by_grant_type; end
   def skip_authorization(*_args); end
   def token_grant_types; end
+  def token_lookup_batch_size(*_args); end
   def token_reuse_limit; end
   def token_secret_fallback_strategy; end
   def token_secret_strategy; end
@@ -145,6 +146,7 @@ class Doorkeeper::Config::Builder
   def revoke_previous_client_credentials_token; end
   def scopes_by_grant_type(hash = nil); end
   def skip_authorization(*args, &block); end
+  def token_lookup_batch_size(*args, &block); end
   def token_reuse_limit(percentage); end
   def use_refresh_token(enabled = nil, &block); end
 end
@@ -1214,10 +1216,10 @@ class Doorkeeper::ApplicationController < ApplicationController
   def self.helpers_path; end
   def self.middleware_stack; end
   include ActionDispatch::Routing::UrlFor
-  include Anonymous_Module_39
+  include Anonymous_Module_41
   include Doorkeeper::Helpers::Controller
 end
-module Anonymous_Module_39
+module Anonymous_Module_41
   def _generate_paths_by_default; end
   def _routes; end
   def self._routes; end
@@ -1229,11 +1231,11 @@ module Anonymous_Module_39
   def self.url_for(options); end
   def self.url_options; end
   extend ActiveSupport::Concern
-  extend Anonymous_Module_29
-  extend Anonymous_Module_30
+  extend Anonymous_Module_23
+  extend Anonymous_Module_24
   include ActionDispatch::Routing::UrlFor
-  include Anonymous_Module_29
-  include Anonymous_Module_30
+  include Anonymous_Module_23
+  include Anonymous_Module_24
 end
 class Doorkeeper::ApplicationsController < Doorkeeper::ApplicationController
   def _layout(lookup_context, formats); end
@@ -1256,9 +1258,9 @@ class Doorkeeper::ApplicationsController < Doorkeeper::ApplicationController
   def show; end
   def update; end
   include ActionDispatch::Routing::UrlFor
-  include Anonymous_Module_40
+  include Anonymous_Module_42
 end
-module Anonymous_Module_40
+module Anonymous_Module_42
   def _generate_paths_by_default; end
   def _routes; end
   def self._routes; end
@@ -1270,11 +1272,11 @@ module Anonymous_Module_40
   def self.url_for(options); end
   def self.url_options; end
   extend ActiveSupport::Concern
-  extend Anonymous_Module_29
-  extend Anonymous_Module_30
+  extend Anonymous_Module_23
+  extend Anonymous_Module_24
   include ActionDispatch::Routing::UrlFor
-  include Anonymous_Module_29
-  include Anonymous_Module_30
+  include Anonymous_Module_23
+  include Anonymous_Module_24
 end
 class Doorkeeper::AuthorizationsController < Doorkeeper::ApplicationController
   def _layout(lookup_context, formats); end
@@ -1300,9 +1302,9 @@ class Doorkeeper::AuthorizationsController < Doorkeeper::ApplicationController
   def self.middleware_stack; end
   def strategy; end
   include ActionDispatch::Routing::UrlFor
-  include Anonymous_Module_41
+  include Anonymous_Module_43
 end
-module Anonymous_Module_41
+module Anonymous_Module_43
   def _generate_paths_by_default; end
   def _routes; end
   def self._routes; end
@@ -1314,11 +1316,11 @@ module Anonymous_Module_41
   def self.url_for(options); end
   def self.url_options; end
   extend ActiveSupport::Concern
-  extend Anonymous_Module_29
-  extend Anonymous_Module_30
+  extend Anonymous_Module_23
+  extend Anonymous_Module_24
   include ActionDispatch::Routing::UrlFor
-  include Anonymous_Module_29
-  include Anonymous_Module_30
+  include Anonymous_Module_23
+  include Anonymous_Module_24
 end
 class Doorkeeper::AuthorizedApplicationsController < Doorkeeper::ApplicationController
   def _layout(lookup_context, formats); end
@@ -1331,9 +1333,9 @@ class Doorkeeper::AuthorizedApplicationsController < Doorkeeper::ApplicationCont
   def self.helpers_path; end
   def self.middleware_stack; end
   include ActionDispatch::Routing::UrlFor
-  include Anonymous_Module_42
+  include Anonymous_Module_44
 end
-module Anonymous_Module_42
+module Anonymous_Module_44
   def _generate_paths_by_default; end
   def _routes; end
   def self._routes; end
@@ -1345,9 +1347,9 @@ module Anonymous_Module_42
   def self.url_for(options); end
   def self.url_options; end
   extend ActiveSupport::Concern
-  extend Anonymous_Module_29
-  extend Anonymous_Module_30
+  extend Anonymous_Module_23
+  extend Anonymous_Module_24
   include ActionDispatch::Routing::UrlFor
-  include Anonymous_Module_29
-  include Anonymous_Module_30
+  include Anonymous_Module_23
+  include Anonymous_Module_24
 end

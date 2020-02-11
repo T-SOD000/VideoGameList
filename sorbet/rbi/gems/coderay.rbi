@@ -21,3 +21,25 @@ module CodeRay
   def self.scan_file(filename, lang = nil, options = nil, &block); end
   def self.scanner(lang, options = nil, &block); end
 end
+module CodeRay::PluginHost
+  def [](id, *args, &blk); end
+  def all_plugins; end
+  def const_missing(const); end
+  def default(id = nil); end
+  def list; end
+  def load(id, *args, &blk); end
+  def load_all; end
+  def load_plugin_map; end
+  def make_plugin_hash; end
+  def map(hash); end
+  def path_to(plugin_id); end
+  def plugin_hash; end
+  def plugin_path(*args); end
+  def register(plugin, id); end
+  def self.extended(mod); end
+  def validate_id(id); end
+end
+class CodeRay::PluginHost::PluginNotFound < LoadError
+end
+class CodeRay::PluginHost::HostNotFound < LoadError
+end

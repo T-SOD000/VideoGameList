@@ -2684,7 +2684,7 @@ class GraphQL::Schema::UnresolvedLateBoundTypeError < GraphQL::Error
 end
 class GraphQL::Schema::InvalidDocumentError < GraphQL::Error
 end
-module InvalidName___Class_0x00___ResolveTypeWithType_38
+module InvalidName___Class_0x00___ResolveTypeWithType_40
   def resolve_type(type, obj, ctx); end
 end
 class GraphQL::Schema::CyclicalDefinitionError < GraphQL::Error

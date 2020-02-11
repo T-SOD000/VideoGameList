@@ -5,11 +5,9 @@
 #
 # If you would like to make changes to this file, great! Please create the gem's shim here:
 #
-#   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/puma/all/puma.rbi
+#   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/ebnf/all/ebnf.rbi
 #
-# puma-4.3.1
-module Puma
-  def self.set_thread_name(name); end
-  def self.stats; end
-  def self.stats_object=(val); end
+# ebnf-1.2.0
+module EBNF
+  def self.parse(input, **options); end
 end
