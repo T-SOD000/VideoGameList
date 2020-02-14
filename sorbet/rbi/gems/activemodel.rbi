@@ -436,9 +436,9 @@ class ActiveModel::Type::Date < ActiveModel::Type::Value
   def type_cast_for_schema(value); end
   def value_from_multiparameter_assignment(*arg0); end
   include ActiveModel::Type::Helpers::Timezone
-  include Anonymous_ActiveModel_Type_Helpers_AcceptsMultiparameterTime_8
+  include Anonymous_ActiveModel_Type_Helpers_AcceptsMultiparameterTime_11
 end
-module Anonymous_ActiveModel_Type_Helpers_AcceptsMultiparameterTime_8
+module Anonymous_ActiveModel_Type_Helpers_AcceptsMultiparameterTime_11
   def assert_valid_value(value); end
   def cast(value); end
   def serialize(value); end
@@ -453,9 +453,9 @@ class ActiveModel::Type::DateTime < ActiveModel::Type::Value
   def value_from_multiparameter_assignment(values_hash); end
   include ActiveModel::Type::Helpers::TimeValue
   include ActiveModel::Type::Helpers::Timezone
-  include Anonymous_ActiveModel_Type_Helpers_AcceptsMultiparameterTime_9
+  include Anonymous_ActiveModel_Type_Helpers_AcceptsMultiparameterTime_12
 end
-module Anonymous_ActiveModel_Type_Helpers_AcceptsMultiparameterTime_9
+module Anonymous_ActiveModel_Type_Helpers_AcceptsMultiparameterTime_12
   def assert_valid_value(value); end
   def cast(value); end
   def serialize(value); end
@@ -492,9 +492,9 @@ class ActiveModel::Type::Time < ActiveModel::Type::Value
   def user_input_in_time_zone(value); end
   include ActiveModel::Type::Helpers::TimeValue
   include ActiveModel::Type::Helpers::Timezone
-  include Anonymous_ActiveModel_Type_Helpers_AcceptsMultiparameterTime_10
+  include Anonymous_ActiveModel_Type_Helpers_AcceptsMultiparameterTime_13
 end
-module Anonymous_ActiveModel_Type_Helpers_AcceptsMultiparameterTime_10
+module Anonymous_ActiveModel_Type_Helpers_AcceptsMultiparameterTime_13
   def assert_valid_value(value); end
   def cast(value); end
   def serialize(value); end
@@ -747,4 +747,40 @@ module ActiveModel::Serializers::JSON
   def from_json(json, include_root = nil); end
   extend ActiveSupport::Concern
   include ActiveModel::Serialization
+end
+module ActiveModel::Attributes
+  def attribute(attr_name); end
+  def attribute=(attribute_name, value); end
+  def attribute_names; end
+  def attributes; end
+  def initialize(*arg0); end
+  def write_attribute(attr_name, value); end
+  extend ActiveSupport::Concern
+  include ActiveModel::AttributeMethods
+end
+module ActiveModel::Attributes::ClassMethods
+  def attribute(name, type = nil, **options); end
+  def attribute_names; end
+  def define_default_attribute(name, value, type); end
+  def define_method_attribute=(name); end
+end
+module ActiveModel::Lint
+end
+module ActiveModel::Lint::Tests
+  def assert_boolean(result, name); end
+  def model; end
+  def test_errors_aref; end
+  def test_model_naming; end
+  def test_persisted?; end
+  def test_to_key; end
+  def test_to_param; end
+  def test_to_partial_path; end
+end
+module ActiveModel::Model
+  def initialize(attributes = nil); end
+  def persisted?; end
+  extend ActiveSupport::Concern
+  include ActiveModel::AttributeAssignment
+  include ActiveModel::Conversion
+  include ActiveModel::Validations
 end
